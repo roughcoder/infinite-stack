@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const FooterNavigation = {
   solutions: [
     { name: 'Marketing', href: '#' },
@@ -93,6 +95,33 @@ const FooterNavigation = {
 }
 
 export function Footer() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [buttonText, setButtonText] = useState('Subscribe');
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const emailInput = event.currentTarget.elements.namedItem('email-address') as HTMLInputElement;
+    if (!emailInput || !emailInput.value) {
+      // Basic validation, you might want to add more robust validation
+      alert('Please enter your email address.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setButtonText('Submitted!');
+
+    // Here you would typically send the email to your backend
+    // For this example, we'll just log it and simulate a delay
+    console.log('Email submitted:', emailInput.value);
+
+    // Optional: Reset button after a delay or on successful API call
+    // setTimeout(() => {
+    //   setIsSubmitting(false);
+    //   setButtonText('Subscribe');
+    //   if(emailInput) emailInput.value = ''; // Clear input
+    // }, 3000);
+  };
+
   return (
     <footer className="bg-white">
       <div className="mx-auto max-w-7xl px-6  pb-8 lg:px-8 ">
@@ -109,7 +138,7 @@ export function Footer() {
               The latest news, articles, and resources, sent to your inbox weekly.
             </p>
           </div>
-          <form className="mt-6 sm:flex sm:max-w-md lg:mt-0">
+          <form className="mt-6 sm:flex sm:max-w-md lg:mt-0" onSubmit={handleSubmit}>
             <label htmlFor="email-address" className="sr-only">
               Email address
             </label>
@@ -120,14 +149,16 @@ export function Footer() {
               required
               placeholder="Enter your email"
               autoComplete="email"
-              className="w-full min-w-0 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:w-56 sm:text-sm/6"
+              disabled={isSubmitting}
+              className="w-full min-w-0 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:w-56 sm:text-sm/6 disabled:bg-gray-100"
             />
             <div className="mt-4 sm:mt-0 sm:ml-4 sm:shrink-0">
               <button
                 type="submit"
-                className="flex w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                disabled={isSubmitting}
+                className="flex w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
-                Subscribe
+                {buttonText}
               </button>
             </div>
           </form>

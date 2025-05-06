@@ -6,7 +6,7 @@ const stats = [
 
 export function Mission() {
   return (
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 border-t border-dashed border-gray-300 py-32">
+      <div id="mission" className="mx-auto max-w-7xl px-6 lg:px-8 border-t border-dashed border-gray-300 py-32">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none ">
           <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">Our mission</h2>
           <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">

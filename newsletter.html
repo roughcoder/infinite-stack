@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Signup</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .newsletter-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .newsletter-form h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .newsletter-form input[type="email"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .newsletter-form button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .newsletter-form button:hover {
+            background-color: #0056b3;
+        }
+        .newsletter-form button:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="newsletter-form">
+        <h2>Subscribe to our Newsletter!</h2>
+        <form id="signupForm">
+            <input type="email" id="emailInput" placeholder="Enter your email" required>
+            <button type="submit" id="submitButton">Subscribe</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent actual form submission for this mock
+
+            const submitButton = document.getElementById('submitButton');
+            const emailInput = document.getElementById('emailInput');
+
+            // Basic validation (optional, but good practice)
+            if (emailInput.value === '') {
+                alert('Please enter your email address.');
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitted!';
+
+            // You can add further logic here, like sending data to a server
+            console.log('Form submitted with email:', emailInput.value);
+        });
+    </script>
+</body>
+</html> 

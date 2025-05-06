@@ -4,16 +4,16 @@ import { MobileNav, MobileNavHeader, MobileNavMenu, MobileNavToggle, Navbar, Nav
 export function NavBar() {
     const navItems = [
       {
-        name: "Features",
-        link: "#features",
+        name: "Mission",
+        link: "/#mission",
       },
       {
-        name: "Pricing",
-        link: "#pricing",
+        name: "Zero Fluff",
+        link: "/#zero-fluff",
       },
       {
-        name: "Contact",
-        link: "#contact",
+        name: "Principles",
+        link: "/#principles",
       },
     ];
    
@@ -26,8 +26,8 @@ export function NavBar() {
             <NavbarLogo />
             <NavItems items={navItems} />
             <div className="flex items-center gap-4">
-              <NavbarButton variant="secondary">Login</NavbarButton>
-              <NavbarButton variant="primary">Book a call</NavbarButton>
+              {/* <NavbarButton variant="secondary">Login</NavbarButton> */}
+              <NavbarButton variant="primary" href="/book">Book a call</NavbarButton>
             </div>
           </NavBody>
    
@@ -56,17 +56,18 @@ export function NavBar() {
                 </a>
               ))}
               <div className="flex w-full flex-col gap-4">
-                <NavbarButton
+                {/* <NavbarButton
                   onClick={() => setIsMobileMenuOpen(false)}
                   variant="primary"
                   className="w-full"
                 >
                   Login
-                </NavbarButton>
+                </NavbarButton> */}
                 <NavbarButton
                   onClick={() => setIsMobileMenuOpen(false)}
                   variant="primary"
                   className="w-full"
+                  href="/book"
                 >
                   Book a call
                 </NavbarButton>

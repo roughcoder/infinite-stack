@@ -26,7 +26,7 @@ const features = [
 
 export function Features() {
   return (
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 border-t border-dashed border-gray-300  py-24 sm:py-32">
+      <div id="zero-fluff" className="mx-auto max-w-7xl px-6 lg:px-8 border-t border-dashed border-gray-300  py-24 sm:py-32">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="text-base/7 font-semibold text-indigo-600">zero fluff</h2>
           <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance">

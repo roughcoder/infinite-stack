@@ -1,6 +1,6 @@
 export function Bento() {
   return (
-      <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 border-t border-dashed border-gray-300 py-24 sm:py-32">
+      <div id="principles" className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 border-t border-dashed border-gray-300 py-24 sm:py-32">
         <h2 className="text-base/7 font-semibold text-indigo-600">Practical, hands-on help where it counts</h2>
         <p className="mt-2  text-4xl font-semibold tracking-tight text-pretty text-gray-950 sm:text-5xl">
         From first brief to final deployment, we work alongside you to design, build, and deliver exactly what your business needs.
