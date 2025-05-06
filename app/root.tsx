@@ -6,6 +6,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import { redirect } from "react-router";
+import type { LoaderFunctionArgs } from "react-router";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -22,6 +24,26 @@ export const links: Route.LinksFunction = () => [
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
 ];
+
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  if (process.env.NODE_ENV === 'production') {
+    const url = new URL(request.url);
+    const hostname = url.hostname;
+
+    const intendedNonWwwHostname = "infinitestack.io";
+    const targetWwwHostname = "www.infinitestack.io";
+
+    if (hostname === intendedNonWwwHostname) {
+      const newUrl = new URL(url.toString());
+      newUrl.hostname = targetWwwHostname;
+      newUrl.protocol = "https:";
+
+      return redirect(newUrl.toString(), { status: 301 });
+    }
+  }
+
+  return null;
+};
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
