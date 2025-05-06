@@ -35,6 +35,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <ScrollRestoration />
+        <script defer src="https://inform.infinitestack.io/script.js" data-website-id="8bf0d3d1-288e-487b-8f46-fee7c12683d7"/>
         <Scripts />
       </body>
     </html>
