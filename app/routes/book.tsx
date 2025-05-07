@@ -11,7 +11,7 @@ import type { ActionFunctionArgs } from 'react-router'; // Or ActionFunction if 
 
 export function meta({ data }: Route.MetaArgs) {
   return [
-    { title: "Infinite Stack | Modern Tech Consulting & AI Solutions" },
+    { title: "Infinite Stack | Book a call" },
     { name: "description", content: "Infinite Stack helps businesses solve real problems with AI, full-stack systems, and modern tech. Smart, fast delivery from a small, expert team." },
   ];
 }
