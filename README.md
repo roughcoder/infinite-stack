@@ -88,4 +88,4 @@ Built with ❤️ using React Router.
 
 ## Production runtime
 
-The Dockerfile pins Node 20.20.2 in every stage. This is the final available Node 20 patch; moving to a supported Node major remains a separate upgrade.
+The Dockerfile pins Node 22.23.4 in every stage.
